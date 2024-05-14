@@ -1,4 +1,4 @@
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from re import search, Match
 from subprocess import run
 
@@ -20,7 +20,7 @@ def youtube_video_downloader(url: str) -> None:
 def main() -> None:
     parser: ArgumentParser = ArgumentParser()
     parser.add_argument("-l", "--url", type=str)
-    args = parser.parse_args()
+    args: Namespace = parser.parse_args()
 
     url_arg: str | None = args.url
 
