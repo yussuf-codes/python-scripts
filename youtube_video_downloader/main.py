@@ -8,14 +8,16 @@ HTTP_URL_REGEX_PATTERN: str = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]
 DOWNLOAD_DIRECTORY: str = r'C:\Users\Joe\Videos\Downloads'
 YT_DLP_PATH_OR_COMMAND: str = r'C:\Users\Joe\Documents\Binaries\yt-dlp.exe'
 
+QUALITY: str = '137+bestaudio'
 
-def youtube_video_downloader(url: str):
+
+def youtube_video_downloader(url: str) -> None:
     VIDEO_PATH: str = DOWNLOAD_DIRECTORY + '/%(title)s.%(ext)s'
-    command: list[str] = [YT_DLP_PATH_OR_COMMAND, '-f', '137+bestaudio', '-o', VIDEO_PATH, url]
+    command: list[str] = [YT_DLP_PATH_OR_COMMAND, '-f', QUALITY, '-o', VIDEO_PATH, url]
     run(command)
 
 
-def main():
+def main() -> None:
     parser: ArgumentParser = ArgumentParser()
     parser.add_argument("-l", "--url", type=str)
     args = parser.parse_args()
