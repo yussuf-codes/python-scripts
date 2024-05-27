@@ -1,12 +1,14 @@
 from argparse import ArgumentParser, Namespace
 from re import search, Match
 from subprocess import run
+from os import environ
 
+UNIX_HOME = environ['HOME']
 
 HTTP_URL_REGEX_PATTERN: str = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 
-DOWNLOAD_DIRECTORY: str = r'C:\Users\Joe\Videos\Downloads'
-YT_DLP_PATH_OR_COMMAND: str = r'C:\Users\Joe\Documents\Binaries\yt-dlp.exe'
+DOWNLOAD_DIRECTORY: str = fr'{UNIX_HOME}/videos'
+YT_DLP_PATH_OR_COMMAND: str = fr'{UNIX_HOME}/binaries/yt-dlp'
 
 QUALITY: str = '137+bestaudio'
 
