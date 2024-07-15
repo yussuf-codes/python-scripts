@@ -1,11 +1,4 @@
 from time import sleep
-from winsound import Beep
-
-
-def focus(time_in_minutes: int):
-    time_in_seconds = time_in_minutes * 60
-    timer(int(time_in_seconds))
-    Beep(1000, 250)
 
 
 def timer(time_in_seconds: int):
@@ -28,6 +21,7 @@ def timer(time_in_seconds: int):
             seconds = f"{remaining_seconds}"
 
         timer = f"  Timer: {minutes}:{seconds}"
+
         print(timer, end="\r")
 
         sleep(1)
