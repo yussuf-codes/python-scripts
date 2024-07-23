@@ -1,1 +1,1 @@
-from src.focus import focus
+from . focus import focus

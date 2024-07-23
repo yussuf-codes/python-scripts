@@ -1,5 +1,5 @@
 # from winsound import Beep
-from src.timer import timer
+from . timer import timer
 
 def focus(time_in_minutes: int):
     time_in_seconds = time_in_minutes * 60

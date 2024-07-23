@@ -1,4 +1,9 @@
-from random_password_generator import generate_random_password
+from src import generate_random_password
+
+
+def main() -> None:
+    print(generate_random_password())
+
 
 if __name__ == '__main__':
-    print(generate_random_password())
+    main()
