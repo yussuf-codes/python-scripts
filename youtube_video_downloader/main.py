@@ -1,12 +1,11 @@
 from argparse import ArgumentParser, Namespace
 from re import search, Match
 from subprocess import run
-from os import environ
-
-UNIX_HOME_DIRECTORY = environ['HOME']
+import os
 
 HTTP_URL_REGEX_PATTERN: str = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 
+UNIX_HOME_DIRECTORY = os.environ['HOME']
 DOWNLOAD_DIRECTORY: str = fr'{UNIX_HOME_DIRECTORY}/Videos'
 YT_DLP_PATH_OR_COMMAND: str = fr'{UNIX_HOME_DIRECTORY}/bin/yt-dlp'
 
@@ -35,6 +34,9 @@ def main() -> None:
         raise ValueError('Invalid URL')
 
     url: str = url_match_obj.string
+
+    if not os.path.isdir(DOWNLOAD_DIRECTORY):
+        os.mkdir(DOWNLOAD_DIRECTORY)
 
     youtube_video_downloader(url)
 
