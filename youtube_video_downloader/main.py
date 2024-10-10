@@ -7,7 +7,7 @@ HTTP_URL_REGEX_PATTERN: str = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]
 
 UNIX_HOME_DIRECTORY = os.environ['HOME']
 DOWNLOAD_DIRECTORY: str = fr'{UNIX_HOME_DIRECTORY}/Videos'
-YT_DLP_PATH_OR_COMMAND: str = fr'{UNIX_HOME_DIRECTORY}/bin/yt-dlp'
+YT_DLP_PATH_OR_COMMAND: str = 'yt-dlp'
 
 QUALITY: str = '137+bestaudio'
 
