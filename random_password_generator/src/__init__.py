@@ -1,1 +1,1 @@
-from . generate_random_password import generate_random_password
+from src.generate_random_password import generate_random_password

@@ -13,33 +13,33 @@ QUALITY: str = '137+bestaudio'
 
 
 def youtube_video_downloader(url: str) -> None:
-    VIDEO_PATH: str = DOWNLOAD_DIRECTORY + '/%(title)s.%(ext)s'
-    command: list[str] = [YT_DLP_PATH_OR_COMMAND, '-f', QUALITY, '-o', VIDEO_PATH, url]
-    run(command)
+	VIDEO_PATH: str = DOWNLOAD_DIRECTORY + '/%(title)s.%(ext)s'
+	command: list[str] = [YT_DLP_PATH_OR_COMMAND, '-f', QUALITY, '-o', VIDEO_PATH, url]
+	run(command)
 
 
 def main() -> None:
-    parser: ArgumentParser = ArgumentParser()
-    parser.add_argument("-l", "--url", type=str)
-    args: Namespace = parser.parse_args()
+	parser: ArgumentParser = ArgumentParser()
+	parser.add_argument("-l", "--url", type=str)
+	args: Namespace = parser.parse_args()
 
-    url_arg: str | None = args.url
+	url_arg: str | None = args.url
 
-    if url_arg is None:
-        raise ValueError('URL is not provided')
+	if url_arg is None:
+		raise ValueError('URL is not provided')
 
-    url_match_obj: Match[str] | None = search(HTTP_URL_REGEX_PATTERN, url_arg)
+	url_match_obj: Match[str] | None = search(HTTP_URL_REGEX_PATTERN, url_arg)
 
-    if url_match_obj is None:
-        raise ValueError('Invalid URL')
+	if url_match_obj is None:
+		raise ValueError('Invalid URL')
 
-    url: str = url_match_obj.string
+	url: str = url_match_obj.string
 
-    if not os.path.isdir(DOWNLOAD_DIRECTORY):
-        os.mkdir(DOWNLOAD_DIRECTORY)
+	if not os.path.isdir(DOWNLOAD_DIRECTORY):
+		os.mkdir(DOWNLOAD_DIRECTORY)
 
-    youtube_video_downloader(url)
+	youtube_video_downloader(url)
 
 
 if __name__ == '__main__':
-    main()
+	main()
