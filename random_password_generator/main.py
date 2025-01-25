@@ -2,7 +2,8 @@ from src import generate_random_password
 
 
 def main() -> None:
-	generate_random_password()
+	random_password = generate_random_password(16)
+	print(random_password)
 
 
 if __name__ == '__main__':
