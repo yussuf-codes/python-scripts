@@ -2,7 +2,7 @@ from src import generate_random_password
 
 
 def main() -> None:
-	random_password = generate_random_password(16)
+	random_password = generate_random_password(24)
 	print(random_password)
 
 
